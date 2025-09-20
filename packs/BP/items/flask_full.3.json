@@ -2,7 +2,7 @@
   "format_version": "1.21.0",
   "minecraft:item": {
     "description": {
-      "identifier": "sb_th:flask_full"
+      "identifier": "sb_th:flask_full.3"
     },
     "components": {
       "minecraft:icon": "sb_th:flask_full",

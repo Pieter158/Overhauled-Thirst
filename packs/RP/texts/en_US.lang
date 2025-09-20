@@ -29,9 +29,17 @@ sb_th.form.capacity=§7■§r §sCapacity:§r
     sb_th.form.water_purifier.title=Water Purifier
     sb_th.form.water_purifier.description.1=The water purifier makes your water drinkable. This machine is much more efficient than the Furnace. It can also filter multiple bottles or flasks at the same time.
 
-    ## Items
-    sb_th.form.items.title=Items
-    sb_th.form.items.description.1=This section contains all the items related to the thirst system and their uses.
+    ## Berry Juice
+    sb_th.form.berry_juice.title=Berry Juice
+    sb_th.form.berry_juice.description.1=Berry juice is a refreshing drink made from berries.
+
+    ## Cactus Juice
+    sb_th.form.cactus_juice.title=Cactus Juice
+    sb_th.form.cactus_juice.description.1=Cactus juice is very hydrating, but it does make you feel nauseous.
+
+## Items
+sb_th.form.items.title=Items
+sb_th.form.items.description.1=This section contains all the items related to the thirst system and their uses.
 
     ## Flask
     sb_th.form.flask.title=Flask
@@ -39,5 +47,7 @@ sb_th.form.capacity=§7■§r §sCapacity:§r
 
 ## Items
 item.sb_th:thirst_guide=Guide~LINEBREAK~§gOverhauled: Thirst [DX]
-item.sb_th:flask_full=Full Flask
+item.sb_th:flask_full.1=Full Flask
+item.sb_th:flask_full.2=Full Flask
+item.sb_th:flask_full.3=Full Flask
 item.sb_th:flask_empty=Empty Flask

@@ -46,7 +46,7 @@ export default [
     iconPath: "textures/sb/th/ui/purified_water_bottle",
     description: ["sb_th.form.purified_water.description.1"],
     references: ["thirst"],
-    wikiInfo: { thirst: +5, capacity: 3 },
+    wikiInfo: { thirst: +3 },
   }),
   new ActionForm("water_purifier", {
     title: "sb_th.form.water_purifier.title",
@@ -54,6 +54,20 @@ export default [
     description: ["sb_th.form.water_purifier.description.1"],
     references: ["salt_water"],
     wikiInfo: { hasCraftingTableRecipe: true },
+  }),
+  new ActionForm("berry_juice", {
+    title: "sb_th.form.berry_juice.title",
+    iconPath: "textures/sb/th/ui/berry_juice_bottle",
+    description: ["sb_th.form.berry_juice.description.1"],
+    references: ["thirst"],
+    wikiInfo: { thirst: +4 },
+  }),
+  new ActionForm("cactus_juice", {
+    title: "sb_th.form.cactus_juice.title",
+    iconPath: "textures/sb/th/ui/cactus_juice_bottle",
+    description: ["sb_th.form.cactus_juice.description.1"],
+    references: ["thirst"],
+    wikiInfo: { thirst: +5 },
   }),
 
   // ITEMS
@@ -64,7 +78,6 @@ export default [
     description: ["sb_th.form.flask.description.1"],
     references: ["items"],
     wikiInfo: {
-      thirst: +5,
       capacity: 3,
       hasCraftingTableRecipe: true,
     },

@@ -5,6 +5,7 @@
       "identifier": "sb_th:flask_empty"
     },
     "components": {
+      "minecraft:use_on_block": {},
       "minecraft:icon": "sb_th:flask_empty",
       "minecraft:max_stack_size": 1
     }
