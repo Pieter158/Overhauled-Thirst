@@ -93,12 +93,12 @@ export const freezeEffect: EffectOptions = {
   ],
   visualEffects: {
     onStart: {
-      sounds: ["sb_ob:freeze.hit"],
+      sounds: ["sb_th:freeze.hit"],
     },
     onInterval: {
       particles: [
         {
-          id: "sb_ob:freeze.hit",
+          id: "sb_th:freeze.hit",
           interval: 2,
         },
       ],
@@ -112,12 +112,12 @@ export const fireEffect: EffectOptions = {
   duration: 5,
   visualEffects: {
     onStart: {
-      sounds: ["sb_ob:fire.hit"],
+      sounds: ["sb_th:fire.hit"],
     },
     onInterval: {
       particles: [
         {
-          id: "sb_ob:fire.hit",
+          id: "sb_th:fire.hit",
           interval: 2,
         },
       ],
@@ -141,7 +141,7 @@ export const pullEntitiesEffect: EffectOptions = {
       ],
       sounds: [
         {
-          id: "sb_ob:magnetism",
+          id: "sb_th:magnetism",
           interval: 10,
         },
       ],
@@ -163,13 +163,13 @@ export const plantGrowthEffect: EffectOptions = {
   duration: 30,
   visualEffects: {
     onStart: {
-      particles: ["sb_ob:plant_growth_start"],
-      sounds: ["sb_ob:plant_growth.start"],
+      particles: ["sb_th:plant_growth_start"],
+      sounds: ["sb_th:plant_growth.start"],
     },
     onInterval: {
       particles: [
         {
-          id: "sb_ob:plant_growth_interval",
+          id: "sb_th:plant_growth_interval",
           interval: 3,
         },
       ],
@@ -192,13 +192,13 @@ export const rapidPlantGrowthEffect: EffectOptions = {
   duration: 15,
   visualEffects: {
     onStart: {
-      particles: ["sb_ob:rapid_plant_growth_start"],
-      sounds: ["sb_ob:rapid_plant_growth.start"],
+      particles: ["sb_th:rapid_plant_growth_start"],
+      sounds: ["sb_th:rapid_plant_growth.start"],
     },
     onInterval: {
       particles: [
         {
-          id: "sb_ob:rapid_plant_growth_interval",
+          id: "sb_th:rapid_plant_growth_interval",
           interval: 1,
         },
       ],
@@ -219,13 +219,13 @@ export const freezeEntityOnHitEffect: EffectOptions = {
   duration: 10,
   visualEffects: {
     onStart: {
-      particles: ["sb_ob:freeze_ability_start"],
-      sounds: ["sb_ob:freeze_ability.start"],
+      particles: ["sb_th:freeze_ability_start"],
+      sounds: ["sb_th:freeze_ability.start"],
     },
     onInterval: {
       particles: [
         {
-          id: "sb_ob:freeze_ability_interval",
+          id: "sb_th:freeze_ability_interval",
           interval: 1,
         },
       ],
@@ -246,13 +246,13 @@ export const fireEntityOnHitEffect: EffectOptions = {
   duration: 10,
   visualEffects: {
     onStart: {
-      particles: ["sb_ob:fire_ability_start"],
-      sounds: ["sb_ob:fire_ability.start"],
+      particles: ["sb_th:fire_ability_start"],
+      sounds: ["sb_th:fire_ability.start"],
     },
     onInterval: {
       particles: [
         {
-          id: "sb_ob:fire_ability_interval",
+          id: "sb_th:fire_ability_interval",
           interval: 1,
         },
       ],

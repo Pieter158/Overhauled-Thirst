@@ -94,9 +94,9 @@ export function plantGrowth(
           }
         }
 
-        // Check for custom crop growth state (sb_ob:grow_state)
+        // Check for custom crop growth state (sb_th:grow_state)
         const customGrowthState =
-          block.permutation.getState("sb_ob:grow_state");
+          block.permutation.getState("sb_th:grow_state");
         if (customGrowthState !== undefined) {
           const currentGrowth = customGrowthState as number;
           // For custom crops, we need to determine max growth differently
@@ -111,7 +111,7 @@ export function plantGrowth(
 
           if (currentGrowth < maxGrowth) {
             block.setPermutation(
-              block.permutation.withState("sb_ob:grow_state", currentGrowth + 1)
+              block.permutation.withState("sb_th:grow_state", currentGrowth + 1)
             );
             block.dimension.spawnParticle(
               "minecraft:crop_growth_emitter",

@@ -29,8 +29,8 @@ const shovelTypes = [
   "minecraft:golden_shovel",
   "minecraft:diamond_shovel",
   "minecraft:netherite_shovel",
-  "sb_ob:deepshard_shovel",
-  "sb_ob:deepshard_shovel",
+  "sb_th:deepshard_shovel",
+  "sb_th:deepshard_shovel",
 ];
 
 /**

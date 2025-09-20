@@ -29,26 +29,26 @@ const pickaxeTypes = [
   "minecraft:golden_pickaxe",
   "minecraft:diamond_pickaxe",
   "minecraft:netherite_pickaxe",
-  "sb_ob:deepshard_pickaxes",
+  "sb_th:deepshard_pickaxes",
 ];
 
 // Array of custom stone blocks from block_set.json
 const customStoneBlocks = [
   // Custom stone variants
-  "sb_ob:limestone",
-  "sb_ob:limestone_bricks",
-  "sb_ob:polished_limestone",
-  "sb_ob:thin_limestone_bricks",
-  "sb_ob:andesite_bricks",
-  "sb_ob:calcite_bricks",
-  "sb_ob:diorite_bricks",
-  "sb_ob:granite_bricks",
-  "sb_ob:ice_bricks",
+  "sb_th:limestone",
+  "sb_th:limestone_bricks",
+  "sb_th:polished_limestone",
+  "sb_th:thin_limestone_bricks",
+  "sb_th:andesite_bricks",
+  "sb_th:calcite_bricks",
+  "sb_th:diorite_bricks",
+  "sb_th:granite_bricks",
+  "sb_th:ice_bricks",
   // Custom ores and materials
-  "sb_ob:cobalt_ore",
-  "sb_ob:ruby_ore",
-  "sb_ob:deepshard_crystal",
-  "sb_ob:fungal_deepslate",
+  "sb_th:cobalt_ore",
+  "sb_th:ruby_ore",
+  "sb_th:deepshard_crystal",
+  "sb_th:fungal_deepslate",
 ];
 
 /**

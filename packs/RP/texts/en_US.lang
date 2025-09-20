@@ -1,2 +1,43 @@
+pack.name=Overhauled: Thirst [DX]
+pack.description=Created By Solid Blocks
+sb_th.joined.first_time=Welcome to the §gOverhauled: Thirst [DX]§r! Join our community for updates & new packs (link in guide).
+
+## Main Guide
+sb_th.form.main.title=Overhauled: Thirst Guide
+sb_th.form.main.description.1=This guide explains everything you need to use the pack correctly.
+sb_th.form.back=Back
+
+sb_th.form.recipe=§7■§r §sCrafting Ingredients:§r Brick
+
+sb_th.form.thirst=§7■§r §sHydration:§r
+sb_th.form.capacity=§7■§r §sCapacity:§r
+
+    ## Thirst System
+    sb_th.form.thirst.title=Thirst System
+    sb_th.form.thirst.description.1=The thirst system adds a new survival mechanic to the game. You need to drink water regularly to stay hydrated and healthy.
+
+    ## Salt Water
+    sb_th.form.salt_water.title=Salt Water
+    sb_th.form.salt_water.description.1=This is water that you take directly from the sea or a lake. It is not drinkable and will actually cause you to dehydrate. 
+    sb_th.form.salt_water.description.2=The water must first be boiled or purified. You can do this using a furnace or water purifier.
+
+    ## Purified Water
+    sb_th.form.purified_water.title=Purified Water
+    sb_th.form.purified_water.description.1=Purified water is safe to drink. This water ensures that you stay hydrated.
+
+    ## Water Purifier
+    sb_th.form.water_purifier.title=Water Purifier
+    sb_th.form.water_purifier.description.1=The water purifier makes your water drinkable. This machine is much more efficient than the Furnace. It can also filter multiple bottles or flasks at the same time.
+
+    ## Items
+    sb_th.form.items.title=Items
+    sb_th.form.items.description.1=This section contains all the items related to the thirst system and their uses.
+
+    ## Flask
+    sb_th.form.flask.title=Flask
+    sb_th.form.flask.description.1=The flask has a larger capacity than glass bottles and is more efficient for long journeys.
+
+## Items
+item.sb_th:thirst_guide=Guide~LINEBREAK~§gOverhauled: Thirst [DX]
 item.sb_th:flask_full=Full Flask
 item.sb_th:flask_empty=Empty Flask

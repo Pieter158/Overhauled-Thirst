@@ -92,7 +92,7 @@
         "thirst_icon_empty": {
           "type": "image",
           "$update_string": "updateThirst:",
-          "texture": "textures/droplet_empty",
+          "texture": "textures/sb/th/ui/droplet_empty",
           "layer": 0,
           "$condition|default": 20,
           "$condition_half": "($condition - 1)",
@@ -121,7 +121,7 @@
             {
               "thirst_icon_full": {
                 "type": "image",
-                "texture": "textures/droplet_full",
+                "texture": "textures/sb/th/ui/droplet_full",
                 "layer": 2,
                 "bindings": [
                   {
@@ -142,7 +142,7 @@
             {
               "thirst_icon_half": {
                 "type": "image",
-                "texture": "textures/droplet_half",
+                "texture": "textures/sb/th/ui/droplet_half",
                 "layer": 1,
                 "bindings": [
                   {

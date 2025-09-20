@@ -2,11 +2,14 @@
   "resource_pack_name": "JSON-UI Tutorials",
   "texture_name": "atlas.items",
   "texture_data": {
-    "sb_th_flask_full": {
-      "textures": "textures/flask_full"
+    "sb_th:flask_full": {
+      "textures": "textures/sb/th/items/flask_full"
     },
-    "sb_th_flask_empty": {
-      "textures": "textures/flask_empty"
+    "sb_th:flask_empty": {
+      "textures": "textures/sb/th/items/flask_empty"
+    },
+    "sb_th:thirst_guide": {
+      "textures": "textures/sb/th/items/thirst_guide"
     }
   }
 }

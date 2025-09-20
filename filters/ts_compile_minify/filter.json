@@ -3,7 +3,7 @@
     {
       "runWith": "nodejs",
       "script": "./index.js",
-      "name": "sb_ob:ts_transpiler_minify"
+      "name": "sb_th:ts_transpiler_minify"
     }
   ]
 }

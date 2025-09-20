@@ -24,7 +24,12 @@ import {
 } from "@minecraft/server";
 import ScriptingModule from "./scriptingModule";
 import { namespace } from "../config/_config";
-import { getCardinalDirection, getItemInSlot, loadInventory, saveInventory } from "./helper/utils";
+import {
+  getCardinalDirection,
+  getItemInSlot,
+  loadInventory,
+  saveInventory,
+} from "./helper/utils";
 
 // Base class for command handlers
 abstract class CommandHandler {
@@ -50,7 +55,9 @@ class SpeedCommandHandler extends CommandHandler {
       name: `${namespace}:speed`,
       description: "Control player movement speed (1=normal, 10=fastest)",
       permissionLevel: CommandPermissionLevel.Admin,
-      optionalParameters: [{ type: CustomCommandParamType.Integer, name: "speedLevel" }],
+      optionalParameters: [
+        { type: CustomCommandParamType.Integer, name: "speedLevel" },
+      ],
     };
     registry.registerCommand(speedCommand, this.handleSpeedCommand);
   }
@@ -76,7 +83,9 @@ class SpeedCommandHandler extends CommandHandler {
 
     this.setPlayerSpeed(player, speedLevel);
     const message =
-      speedLevel === 1 ? "Speed set to normal (1)" : `Speed set to level ${speedLevel}`;
+      speedLevel === 1
+        ? "Speed set to normal (1)"
+        : `Speed set to level ${speedLevel}`;
     return this.createSuccessResult(message);
   };
 
@@ -132,15 +141,20 @@ class DebugCommandHandler extends CommandHandler {
       name: `${namespace}:debug`,
       description: "Toggle debug modes (block, boss, etc.)",
       permissionLevel: CommandPermissionLevel.Admin,
-      optionalParameters: [{ type: CustomCommandParamType.String, name: "category" }],
+      optionalParameters: [
+        { type: CustomCommandParamType.String, name: "category" },
+      ],
     };
     registry.registerCommand(debugCommand, this.handleDebugCommand);
 
     const entitiesCommand: CustomCommand = {
       name: `${namespace}:entities`,
-      description: "List all entities and their counts within a radius (default: 100)",
+      description:
+        "List all entities and their counts within a radius (default: 100)",
       permissionLevel: CommandPermissionLevel.Admin,
-      optionalParameters: [{ type: CustomCommandParamType.Integer, name: "radius" }],
+      optionalParameters: [
+        { type: CustomCommandParamType.Integer, name: "radius" },
+      ],
     };
     registry.registerCommand(entitiesCommand, this.handleEntitiesCommand);
   }
@@ -161,7 +175,9 @@ class DebugCommandHandler extends CommandHandler {
       case "boss":
         return this.toggleDebugCategory(player, "debug_boss", "Boss debug");
       default:
-        return this.createFailureResult("Invalid debug category. Available: block, boss");
+        return this.createFailureResult(
+          "Invalid debug category. Available: block, boss"
+        );
     }
   };
 
@@ -182,14 +198,14 @@ class DebugCommandHandler extends CommandHandler {
     try {
       const entities = player.dimension.getEntities({
         location: player.location,
-        maxDistance: searchRadius
+        maxDistance: searchRadius,
       });
 
       // Count entities by type
       const counts = new Map<string, number>();
       let totalCount = 0;
 
-      entities.forEach(entity => {
+      entities.forEach((entity) => {
         // Skip the command executor from the count
         if (entity.id === player.id) return;
 
@@ -202,7 +218,7 @@ class DebugCommandHandler extends CommandHandler {
       const sortedCounts = Array.from(counts.entries())
         .sort((a, b) => b[1] - a[1])
         .map(([type, count]) => `§7[${count}] §f${type}`)
-        .join('§8, ');
+        .join("§8, ");
 
       return this.createSuccessResult(
         `§2[${totalCount}] §fEntities within ${searchRadius} blocks:\n${sortedCounts}`
@@ -235,7 +251,9 @@ class DebugCommandHandler extends CommandHandler {
 
   handleDebugDisplay(player: Player): void {
     if (player.hasTag(`${namespace}:debug`)) {
-      const block = player.getBlockFromViewDirection({ maxDistance: 10 })?.block;
+      const block = player.getBlockFromViewDirection({
+        maxDistance: 10,
+      })?.block;
       if (block) {
         const states = block.permutation.getAllStates();
         const formattedStates = Object.entries(states)
@@ -246,11 +264,13 @@ class DebugCommandHandler extends CommandHandler {
     }
 
     if (player.hasTag(`${namespace}:debug_boss`)) {
-      const entity = player.getEntitiesFromViewDirection({ maxDistance: 10 })[0];
+      const entity = player.getEntitiesFromViewDirection({
+        maxDistance: 10,
+      })[0];
       if (entity) {
-        const attackMode = entity.entity.getProperty("sb_ob:attack_mode");
-        const attackRange = entity.entity.getProperty("sb_ob:attack_range");
-        const cooldown = entity.entity.getProperty("sb_ob:has_cooldown");
+        const attackMode = entity.entity.getProperty("sb_th:attack_mode");
+        const attackRange = entity.entity.getProperty("sb_th:attack_range");
+        const cooldown = entity.entity.getProperty("sb_th:has_cooldown");
         player.runCommand(
           `title @s actionbar ${entity.entity.typeId}, ${attackMode}, ${attackRange}, ${cooldown}`
         );
@@ -263,14 +283,46 @@ class DebugCommandHandler extends CommandHandler {
 class GamemodeCommandHandler extends CommandHandler {
   registerCommands(registry: any): void {
     const gamemodes = [
-      { short: "gms", mode: "survival", description: "Set gamemode to Survival" },
-      { short: "gmc", mode: "creative", description: "Set gamemode to Creative" },
-      { short: "gma", mode: "adventure", description: "Set gamemode to Adventure" },
-      { short: "gmsp", mode: "spectator", description: "Set gamemode to Spectator" },
-      { short: "gm0", mode: "survival", description: "Set gamemode to Survival" },
-      { short: "gm1", mode: "creative", description: "Set gamemode to Creative" },
-      { short: "gm2", mode: "adventure", description: "Set gamemode to Adventure" },
-      { short: "gm3", mode: "spectator", description: "Set gamemode to Spectator" }
+      {
+        short: "gms",
+        mode: "survival",
+        description: "Set gamemode to Survival",
+      },
+      {
+        short: "gmc",
+        mode: "creative",
+        description: "Set gamemode to Creative",
+      },
+      {
+        short: "gma",
+        mode: "adventure",
+        description: "Set gamemode to Adventure",
+      },
+      {
+        short: "gmsp",
+        mode: "spectator",
+        description: "Set gamemode to Spectator",
+      },
+      {
+        short: "gm0",
+        mode: "survival",
+        description: "Set gamemode to Survival",
+      },
+      {
+        short: "gm1",
+        mode: "creative",
+        description: "Set gamemode to Creative",
+      },
+      {
+        short: "gm2",
+        mode: "adventure",
+        description: "Set gamemode to Adventure",
+      },
+      {
+        short: "gm3",
+        mode: "spectator",
+        description: "Set gamemode to Spectator",
+      },
     ];
 
     gamemodes.forEach(({ short, mode, description }) => {
@@ -331,7 +383,7 @@ class UtilityCommandHandler extends CommandHandler {
     };
     registry.registerCommand(toggleDayNightCommand, this.handleToggleDayNight);
 
-  // Set time commands
+    // Set time commands
     const dayCommand: CustomCommand = {
       name: `${namespace}:day`,
       description: "Set time to day",
@@ -378,7 +430,9 @@ class UtilityCommandHandler extends CommandHandler {
       name: `${namespace}:heal`,
       description: "Apply instant_health and saturation to heal a player",
       permissionLevel: CommandPermissionLevel.Admin,
-      optionalParameters: [{ type: CustomCommandParamType.String, name: "playerName" }],
+      optionalParameters: [
+        { type: CustomCommandParamType.String, name: "playerName" },
+      ],
     };
     registry.registerCommand(healCommand, this.handleHealCommand);
 
@@ -386,7 +440,9 @@ class UtilityCommandHandler extends CommandHandler {
       name: `${namespace}:up`,
       description: "Teleport up by specified number of blocks (default: 100)",
       permissionLevel: CommandPermissionLevel.Admin,
-      optionalParameters: [{ type: CustomCommandParamType.Integer, name: "blocks" }],
+      optionalParameters: [
+        { type: CustomCommandParamType.Integer, name: "blocks" },
+      ],
     };
     registry.registerCommand(upCommand, this.handleUpCommand);
 
@@ -422,7 +478,11 @@ class UtilityCommandHandler extends CommandHandler {
           { dimension: player.dimension }
         );
         // Then place a glass block one block below them
-        player.dimension.runCommand(`setblock ${Math.floor(pos.x)} ${Math.floor(newY - 1)} ${Math.floor(pos.z)} minecraft:glass`);
+        player.dimension.runCommand(
+          `setblock ${Math.floor(pos.x)} ${Math.floor(newY - 1)} ${Math.floor(
+            pos.z
+          )} minecraft:glass`
+        );
       });
       return this.createSuccessResult(`§dWoosh!`);
     } catch (error) {
@@ -450,23 +510,33 @@ class UtilityCommandHandler extends CommandHandler {
       }
 
       // If a player name is specified, check if they exist first
-      const targetPlayer = [...world.getPlayers()].find(p => p.name.toLowerCase() === playerName.toLowerCase());
+      const targetPlayer = [...world.getPlayers()].find(
+        (p) => p.name.toLowerCase() === playerName.toLowerCase()
+      );
       if (!targetPlayer) {
         return this.createFailureResult(`Player "${playerName}" not found`);
       }
 
       // If player exists, heal them
       system.run(() => {
-        executor.runCommand(`effect @p[name="${targetPlayer.name}"] instant_health 1 255 true`);
-        executor.runCommand(`effect @p[name="${targetPlayer.name}"] saturation 1 255 true`);
+        executor.runCommand(
+          `effect @p[name="${targetPlayer.name}"] instant_health 1 255 true`
+        );
+        executor.runCommand(
+          `effect @p[name="${targetPlayer.name}"] saturation 1 255 true`
+        );
       });
       return this.createSuccessResult(`Healed ${targetPlayer.name}`);
     } catch (error) {
-      return this.createFailureResult(`Failed to apply healing effects: ${error}`);
+      return this.createFailureResult(
+        `Failed to apply healing effects: ${error}`
+      );
     }
   };
 
-  private handleToggleWeather = (origin: CustomCommandOrigin): CustomCommandResult | undefined => {
+  private handleToggleWeather = (
+    origin: CustomCommandOrigin
+  ): CustomCommandResult | undefined => {
     const player = this.getPlayerFromOrigin(origin);
     if (!player) {
       return this.createFailureResult("Command must be run by a player");
@@ -475,16 +545,22 @@ class UtilityCommandHandler extends CommandHandler {
     this.weatherCycleEnabled = !this.weatherCycleEnabled;
     try {
       system.run(() => {
-        player.runCommand(`gamerule doweathercycle ${this.weatherCycleEnabled}`);
+        player.runCommand(
+          `gamerule doweathercycle ${this.weatherCycleEnabled}`
+        );
       });
       const status = this.weatherCycleEnabled ? "enabled" : "disabled";
       return this.createSuccessResult(`Weather cycle ${status}`);
     } catch (error) {
-      return this.createFailureResult(`Failed to toggle weather cycle: ${error}`);
+      return this.createFailureResult(
+        `Failed to toggle weather cycle: ${error}`
+      );
     }
   };
 
-  private handleToggleDayNight = (origin: CustomCommandOrigin): CustomCommandResult | undefined => {
+  private handleToggleDayNight = (
+    origin: CustomCommandOrigin
+  ): CustomCommandResult | undefined => {
     const player = this.getPlayerFromOrigin(origin);
     if (!player) {
       return this.createFailureResult("Command must be run by a player");
@@ -493,16 +569,22 @@ class UtilityCommandHandler extends CommandHandler {
     this.daylightCycleEnabled = !this.daylightCycleEnabled;
     try {
       system.run(() => {
-        player.runCommand(`gamerule dodaylightcycle ${this.daylightCycleEnabled}`);
+        player.runCommand(
+          `gamerule dodaylightcycle ${this.daylightCycleEnabled}`
+        );
       });
       const status = this.daylightCycleEnabled ? "enabled" : "disabled";
       return this.createSuccessResult(`Day/night cycle ${status}`);
     } catch (error) {
-      return this.createFailureResult(`Failed to toggle day/night cycle: ${error}`);
+      return this.createFailureResult(
+        `Failed to toggle day/night cycle: ${error}`
+      );
     }
   };
 
-  private handleDayCommand = (origin: CustomCommandOrigin): CustomCommandResult | undefined => {
+  private handleDayCommand = (
+    origin: CustomCommandOrigin
+  ): CustomCommandResult | undefined => {
     const player = this.getPlayerFromOrigin(origin);
     if (!player) {
       return this.createFailureResult("Command must be run by a player");
@@ -517,7 +599,9 @@ class UtilityCommandHandler extends CommandHandler {
     }
   };
 
-  private handleNightCommand = (origin: CustomCommandOrigin): CustomCommandResult | undefined => {
+  private handleNightCommand = (
+    origin: CustomCommandOrigin
+  ): CustomCommandResult | undefined => {
     const player = this.getPlayerFromOrigin(origin);
     if (!player) {
       return this.createFailureResult("Command must be run by a player");
@@ -532,7 +616,9 @@ class UtilityCommandHandler extends CommandHandler {
     }
   };
 
-  private handleNoonCommand = (origin: CustomCommandOrigin): CustomCommandResult | undefined => {
+  private handleNoonCommand = (
+    origin: CustomCommandOrigin
+  ): CustomCommandResult | undefined => {
     const player = this.getPlayerFromOrigin(origin);
     if (!player) {
       return this.createFailureResult("Command must be run by a player");
@@ -547,7 +633,9 @@ class UtilityCommandHandler extends CommandHandler {
     }
   };
 
-  private handleMidnightCommand = (origin: CustomCommandOrigin): CustomCommandResult | undefined => {
+  private handleMidnightCommand = (
+    origin: CustomCommandOrigin
+  ): CustomCommandResult | undefined => {
     const player = this.getPlayerFromOrigin(origin);
     if (!player) {
       return this.createFailureResult("Command must be run by a player");
@@ -562,7 +650,9 @@ class UtilityCommandHandler extends CommandHandler {
     }
   };
 
-  private handleSunriseCommand = (origin: CustomCommandOrigin): CustomCommandResult | undefined => {
+  private handleSunriseCommand = (
+    origin: CustomCommandOrigin
+  ): CustomCommandResult | undefined => {
     const player = this.getPlayerFromOrigin(origin);
     if (!player) {
       return this.createFailureResult("Command must be run by a player");
@@ -577,7 +667,9 @@ class UtilityCommandHandler extends CommandHandler {
     }
   };
 
-  private handleSunsetCommand = (origin: CustomCommandOrigin): CustomCommandResult | undefined => {
+  private handleSunsetCommand = (
+    origin: CustomCommandOrigin
+  ): CustomCommandResult | undefined => {
     const player = this.getPlayerFromOrigin(origin);
     if (!player) {
       return this.createFailureResult("Command must be run by a player");
@@ -592,7 +684,9 @@ class UtilityCommandHandler extends CommandHandler {
     }
   };
 
-  private handleClearCommand = (origin: CustomCommandOrigin): CustomCommandResult | undefined => {
+  private handleClearCommand = (
+    origin: CustomCommandOrigin
+  ): CustomCommandResult | undefined => {
     const player = this.getPlayerFromOrigin(origin);
     if (!player) {
       return this.createFailureResult("Command must be run by a player");
@@ -607,7 +701,9 @@ class UtilityCommandHandler extends CommandHandler {
     }
   };
 
-  private handleKillAllCommand = (origin: CustomCommandOrigin): CustomCommandResult | undefined => {
+  private handleKillAllCommand = (
+    origin: CustomCommandOrigin
+  ): CustomCommandResult | undefined => {
     const player = this.getPlayerFromOrigin(origin);
     if (!player) {
       return this.createFailureResult("Command must be run by a player");
@@ -617,14 +713,14 @@ class UtilityCommandHandler extends CommandHandler {
       const protectedEntities = [
         "minecraft:player",
         "minecraft:armor_stand",
-        "minecraft:painting"
+        "minecraft:painting",
       ];
 
       const entities = player.dimension.getEntities();
       const counts = new Map<string, number>();
       let killCount = 0;
 
-      entities.forEach(entity => {
+      entities.forEach((entity) => {
         // Skip if it's a protected entity type
         if (protectedEntities.includes(entity.typeId)) {
           return;
@@ -644,7 +740,7 @@ class UtilityCommandHandler extends CommandHandler {
       const sortedCounts = Array.from(counts.entries())
         .sort((a, b) => b[1] - a[1])
         .map(([type, count]) => `§7[${count}] §f${type}`)
-        .join('§8, ');
+        .join("§8, ");
 
       return this.createSuccessResult(
         `§2[${killCount}] §fEntities killed:\n${sortedCounts}`

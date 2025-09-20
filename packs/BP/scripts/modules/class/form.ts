@@ -222,6 +222,10 @@ interface ActionFormFeatureInfo {
   drops?: string[];
   // OPTIONAL: food the subject can
   food?: string[];
+  // OPTIONAL: thirst value the subject can provide
+  thirst?: number;
+  // OPTIONAL: capacity value the subject can hold
+  capacity?: number;
   // OPTIONAL: wether the subject has a crafting table recipe
   hasCraftingTableRecipe?: boolean;
   isMarketObtainable?: boolean;
@@ -482,6 +486,24 @@ export class ActionForm {
             }
             body.pop(); // Remove trailing comma
           }
+        }
+
+        if (wikiInfo.thirst !== undefined) {
+          const thirstValue =
+            wikiInfo.thirst >= 0 ? `+${wikiInfo.thirst}` : `${wikiInfo.thirst}`;
+          body.push(
+            newlines,
+            { translate: `${namespace}.form.thirst` },
+            { text: ` ${thirstValue}` }
+          );
+        }
+
+        if (wikiInfo.capacity !== undefined) {
+          body.push(
+            newlines,
+            { translate: `${namespace}.form.capacity` },
+            { text: ` ${wikiInfo.capacity}` }
+          );
         }
 
         if (wikiInfo.drops) {

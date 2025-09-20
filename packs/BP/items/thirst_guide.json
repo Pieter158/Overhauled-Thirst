@@ -1,0 +1,18 @@
+{
+  "format_version": "1.21.40",
+  "minecraft:item": {
+    "description": {
+      "identifier": "sb_th:thirst_guide",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": "sb_th:thirst_guide",
+      "minecraft:tags": {
+        "tags": ["minecraft:bookshelf_books"]
+      }
+    }
+  }
+}
