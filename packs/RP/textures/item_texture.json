@@ -10,6 +10,18 @@
     },
     "sb_th:thirst_guide": {
       "textures": "textures/sb/th/items/thirst_guide"
+    },
+    "sb_th:berry_juice": {
+      "textures": "textures/sb/th/items/berry_juice"
+    },
+    "sb_th:cactus_juice": {
+      "textures": "textures/sb/th/items/cactus_juice"
+    },
+    "sb_th:purified_water": {
+      "textures": "textures/sb/th/items/purified_water"
+    },
+    "sb_th:salt_water": {
+      "textures": "textures/sb/th/items/salt_water"
     }
   }
 }
