@@ -1,0 +1,23 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "sb_th:flask_full"
+    },
+    "components": {
+      "minecraft:icon": "sb_th_flask_full",
+      "minecraft:max_stack_size": 1,
+      "minecraft:use_animation": "drink",
+      "minecraft:use_modifiers": {
+        "use_duration": 2,
+        "movement_modifier": 0.32
+      },
+      "minecraft:food": {
+        "nutrition": 0,
+        "saturation_modifier": 0.1,
+        "can_always_eat": true,
+        "using_converts_to": "sb_th:flask_empty"
+      }
+    }
+  }
+}

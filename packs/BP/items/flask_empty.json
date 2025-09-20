@@ -1,0 +1,12 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "sb_th:flask_empty"
+    },
+    "components": {
+      "minecraft:icon": "sb_th_flask_empty",
+      "minecraft:max_stack_size": 1
+    }
+  }
+}

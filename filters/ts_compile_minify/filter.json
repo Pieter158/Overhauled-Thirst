@@ -1,0 +1,9 @@
+{
+  "filters": [
+    {
+      "runWith": "nodejs",
+      "script": "./index.js",
+      "name": "sb_ob:ts_transpiler_minify"
+    }
+  ]
+}

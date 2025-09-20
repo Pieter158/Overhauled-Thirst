@@ -1,0 +1,163 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Bedrock-OSS/regolith-schemas/main/config/v1.4.json",
+  "author": "Solid Blocks",
+  "name": "SB_Thirst",
+  "packs": {
+    "behaviorPack": "./packs/BP",
+    "resourcePack": "./packs/RP"
+  },
+  "regolith": {
+    "dataPath": "./data",
+    "filterDefinitions": {
+      "ts_compile_minify": {
+        "runWith": "nodejs",
+        "script": "./filters/ts_compile_minify/index.js"
+      },
+      "json_obfuscator": {
+        "runWith": "python",
+        "script": "./filters/json_obfuscator/main.py"
+      },
+      "png_generator": {
+        "runWith": "python",
+        "script": "./filters/png_generator/main.py"
+      },
+      "loop_file": {
+        "runWith": "python",
+        "script": "./filters/loop_file/main.py"
+      },
+      "injector": {
+        "runWith": "python",
+        "script": "./filters/injector/main.py"
+      },
+      "feature_generator": {
+        "runWith": "python",
+        "script": "./filters/feature_generator/main.py"
+      },
+      "structure_convert": {
+        "runWith": "python",
+        "script": "./filters/structure_convert/main.py"
+      }
+    },
+    "profiles": {
+      "default": {
+        "export": {
+          "readOnly": false,
+          "target": "development"
+        },
+        "filters": [
+          {
+            "profile": "ts_compile"
+          }
+        ]
+      },
+      "generation": {
+        "export": {
+          "readOnly": false,
+          "target": "development"
+        },
+        "filters": [
+          {
+            "filter": "structure_convert"
+          },
+          {
+            "filter": "feature_generator"
+          },
+          {
+            "profile": "default"
+          }
+        ]
+      },
+      "json_obfuscator": {
+        "export": {
+          "readOnly": false,
+          "target": "development"
+        },
+        "filters": [
+          {
+            "filter": "json_obfuscator",
+            "settings": {
+              "include_folders": [
+                "animation_controllers",
+                "animations",
+                "blocks",
+                "entities",
+                "fogs",
+                "items",
+                "models/blocks",
+                "models/entity",
+                "recipes",
+                "spawn_rules",
+                "attachables",
+                "biomes",
+                "entity",
+                "particles",
+                "render_controllers"
+              ]
+            }
+          }
+        ]
+      },
+      "ts_compile": {
+        "export": {
+          "readOnly": false,
+          "target": "development"
+        },
+        "filters": [
+          {
+            "filter": "ts_compile_minify",
+            "settings": {
+              "removeTS": true,
+              "obfuscate": true,
+              "minify": true,
+              "compilerOptions": {
+                "allowUnreachableCode": true,
+                "allowUnusedLabels": true,
+                "baseUrl": "BP/scripts/",
+                "declaration": false,
+                "emitDecoratorMetadata": true,
+                "experimentalDecorators": true,
+                "forceConsistentCasingInFileNames": true,
+                "lib": ["dom", "es2020"],
+                "listFiles": false,
+                "module": "es2020",
+                "moduleResolution": "node",
+                "noEmitHelpers": true,
+                "noImplicitAny": true,
+                "noImplicitReturns": false,
+                "noImplicitUseStrict": false,
+                "noLib": false,
+                "pretty": true,
+                "rootDir": "BP/scripts/",
+                "sourceMap": false,
+                "strict": true,
+                "target": "es2020"
+              }
+            }
+          }
+        ]
+      },
+      "loop_file": {
+        "export": {
+          "readOnly": false,
+          "target": "development"
+        },
+        "filters": [
+          {
+            "filter": "loop_file"
+          }
+        ]
+      },
+      "injector": {
+        "export": {
+          "readOnly": false,
+          "target": "development"
+        },
+        "filters": [
+          {
+            "filter": "injector"
+          }
+        ]
+      }
+    }
+  }
+}
